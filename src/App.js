@@ -9,7 +9,7 @@ import Products from './pages/Products';
 import Cart from './pages/Cart';
 import SingleProduct from './pages/SingleProduct'
 import {CartContext} from './CartContext'
-
+import {getCart, storeCart} from './pages/helpers';
 
 const App =()=>{
     
@@ -17,13 +17,13 @@ const App =()=>{
     
     //fetch from local storage
     useEffect(()=>{
-        const cart = window.localStorage.getItem('cart')
-        setCart(JSON.parse(cart));
+        getCart().then(cart=>{
+            setCart(JSON.parse(cart));
+        })
     },[])
 
     useEffect(()=>{
-
-        window.localStorage.setItem('cart',JSON.stringify(cart));
+        storeCart(JSON.stringify(cart));
     },[cart])
 
 

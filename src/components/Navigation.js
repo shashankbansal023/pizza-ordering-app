@@ -26,7 +26,7 @@ const Navigation = ()=>{
                     <li className="ml-6">
                         <Link to="/cart">
                             <div style={cartStyle}>
-                                <span className="text-white">{cart.totalItems}</span>
+                                <span className="text-white">{cart.totalItems ? cart.totalItems: 0 }</span>
                                 <img className="ml-2" style={{height:30}} src="/images/cart.png" alt="cart"/>
                              </div>
                         </Link>
